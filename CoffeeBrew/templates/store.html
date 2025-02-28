@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% if menu==[]%}
+    <h1>Currently Unavailable</h1>
+
+
+{%else%}
+    <div class="container-fluid">
+    <div class="row">
+        <h1>Drinks</h1>
+        {% for items in menu %}
+        {% if items.item_type == 'Drink' %}
+        <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ items.item_name }}</h4>
+                <a href="/order/add/{{items.item_name}}" class="btn bg-light">Add to Cart</a>
+                <!--
+                {% if current_user.is_authenticated and current_user.username == 'admin' %}
+                <a href="/delete/{{items.item_name}}" class="btn bg-danger">Delete</a>
+                {% endif %}
+                -->
+            </div>
+        </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        <h1>Food</h1>
+        {% for items in menu %}
+        {% if items.item_type == 'Food' %}
+            <div class="col-sm-4">
+            <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ items.item_name }}</h4>
+                <a href="/order/add/{{items.item_name}}" class="btn bg-light">Add to Cart</a>
+                <!--
+                {% if current_user.is_authenticated and current_user.username == 'admin' %}
+                <a href="/delete/{{items.item_name}}" class="btn bg-danger">Delete</a>
+                {% endif %}
+                -->
+            </div>
+            </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    </div>
+{% endif %}
+{% endblock %}

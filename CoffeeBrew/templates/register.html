@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+    <label for="user_name">Username</label>
+    <input type="text" id="user_name" name="user_name" required>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number, 
+one uppercase and lowercase letter, and at least 8 characters"  required>
+    <div id="password-message">
+    <h3>Password must contain:</h3>
+    <p class="password-message-item invalid">At least
+        <b>one lowercase letter</b>
+    </p>
+    <p class="password-message-item invalid">At least
+        <b>one uppercase letter</b>
+    </p>
+    <p class="password-message-item invalid">At least
+        <b>one number</b>
+    </p>
+    <p class="password-message-item invalid">Minimum
+        <b>8 characters</b>
+    </p>
+    </div>
+    <br>
+    <label for="confirm_password">Confirm Password</label>
+    <input type="password" id="confirm_password" name="confirm_password" required>
+    <br>
+    <input type="submit">
+</form>
+
+
+{% endblock %}

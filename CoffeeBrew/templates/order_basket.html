@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if order_basket %}
+    {% for items in order_basket %}
+        <div class="container">
+        <li>
+            <p>{{items.name}}</p>
+            <p>{{items.price}}</p>
+        </li>
+
+    {% endfor %}
+        <p>subtotal: £{{subtotal}}</p>
+{% else %}
+    <p>your basket is empty</p>
+{% endif %}
+
+            <button><a href="/clear">Clear Basket</a></button>
+            <button><a href="/checkout">Checkout</a></button>
+        </div>
+
+<script>
+
+
+</script>
+
+
+
+
+{% endblock %}
